@@ -1,6 +1,9 @@
 from decimal import Decimal
 
-from django.contrib.gis.db.backends.base import BaseSpatialOperations
+try:
+    from django.contrib.gis.db.backends.base import BaseSpatialOperations
+except ImportError:
+    from django.contrib.gis.db.backends.base.operations import BaseSpatialOperations
 from django.contrib.gis.db.backends.util import SpatialFunction
 from django.contrib.gis.geometry.backend import Geometry
 from django.contrib.gis.measure import Distance
